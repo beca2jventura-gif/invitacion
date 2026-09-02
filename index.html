@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baby Shower | Killari Cataleya - 26 de Septiembre, 2026</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Dancing+Script:wght@500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'baby-pink': '#FFD1DC',
+                        'baby-pink-dark': '#f472b6',
+                        'baby-gold': '#D4AF37',
+                        'baby-bg': '#FFF5F8',
+                        'soft-purple': '#F3E8FF'
+                    },
+                    fontFamily: {
+                        'script': ['"Dancing Script"', 'cursive'],
+                        'serif-title': ['"Cormorant Garamond"', 'serif'],
+                        'sans': ['"Plus Jakarta Sans"', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-baby-bg text-slate-800 font-sans antialiased relative selection:bg-pink-300 selection:text-pink-900 overflow-hidden">
+
+    <!-- Canvas de Partículas / Pétalos Flotantes -->
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- Audio de Fondo (Soundtrack instrumental suave) -->
+    <audio id="bg-music" loop preload="auto">
+        <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=sweet-lullaby-112879.mp3" type="audio/mpeg">
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Pantalla de Bienvenida Interactiva (Sobre de Carta) -->
+    <div id="envelope-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/60 backdrop-blur-md transition-all duration-700 p-4">
+        <div class="envelope-wrapper w-full max-w-md">
+            <div class="envelope-card bg-white/95 rounded-3xl p-8 md:p-10 text-center shadow-2xl border-2 border-pink-200 relative overflow-hidden transform transition-all duration-500 scale-100">
+                
+                <!-- Sparkles decorativos -->
+                <div class="absolute -top-6 -right-6 text-pink-300 text-6xl opacity-40 floating-slow">✨</div>
+                <div class="absolute -bottom-6 -left-6 text-pink-300 text-6xl opacity-40 floating-medium">🌸</div>
+                
+                <div class="w-20 h-20 bg-pink-100 text-pink-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-inner text-3xl">
+                    <i class="fa-solid fa-envelope-open-text animate-bounce"></i>
+                </div>
+                
+                <span class="text-xs uppercase tracking-widest font-semibold text-pink-500 bg-pink-50 px-4 py-1.5 rounded-full border border-pink-200">Invitación Especial</span>
+                
+                <h2 class="text-4xl md:text-5xl font-script text-pink-600 my-4 font-bold">¡Estás Invitado!</h2>
+                <p class="text-gray-600 text-sm md:text-base mb-8 leading-relaxed">
+                    Acompañanos a celebrar la pronta llegada de nuestra amada bebé<br>
+                    <strong class="text-pink-600 font-serif-title text-xl">Killari Cataleya</strong>
+                </p>
+                
+                <button id="btn-open" class="pulse-btn w-full bg-gradient-to-r from-pink-400 via-pink-500 to-rose-400 text-white py-4 px-8 rounded-full font-bold text-lg shadow-lg hover:shadow-pink-300/50 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-3">
+                    <span>Abrir Invitación</span>
+                    <i class="fa-solid fa-heart text-pink-200"></i>
+                </button>
+                
+                <p class="text-xs text-gray-400 mt-4 flex items-center justify-center gap-1">
+                    <i class="fa-solid fa-volume-high text-pink-400"></i> Incluye música de fondo
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reproductor de Música Flotante -->
+    <div id="btn-music-container" class="fixed bottom-6 left-6 z-40 hidden">
+        <button id="btn-music" class="glass-card px-5 py-3 rounded-full shadow-xl text-xs md:text-sm font-semibold text-pink-600 flex items-center gap-3 hover:bg-white transition-all border border-pink-200 hover:scale-105 active:scale-95">
+            <div id="equalizer-bars" class="flex items-center gap-1">
+                <span class="music-bar"></span>
+                <span class="music-bar"></span>
+                <span class="music-bar"></span>
+            </div>
+            <span id="music-text">Pausar Música</span>
+        </button>
+    </div>
+
+    <!-- Header / Navbar Minimalista -->
+    <header class="fixed top-0 left-0 right-0 z-30 transition-all duration-300 bg-white/40 backdrop-blur-md border-b border-pink-100/50 py-3">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <a href="#" class="font-script text-2xl font-bold text-pink-600 tracking-wide">Killari Cataleya</a>
+            <a href="#rsvp" class="bg-pink-500 hover:bg-pink-600 text-white text-xs md:text-sm font-bold px-4 py-2 rounded-full transition-all shadow-md hover:shadow-pink-200 flex items-center gap-2">
+                <i class="fa-solid fa-paper-plane"></i> Confirmar
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen flex flex-col items-center justify-center text-center px-4 pt-20 pb-12 relative overflow-hidden">
+        
+        <!-- Elementos flotantes de decoración -->
+        <div class="absolute top-24 left-8 text-4xl md:text-6xl floating-slow opacity-70 select-none">☁️</div>
+        <div class="absolute top-36 right-10 text-3xl md:text-5xl floating-medium opacity-70 select-none">✨</div>
+        <div class="absolute bottom-28 left-12 text-4xl md:text-6xl floating-fast opacity-70 select-none">🎀</div>
+        <div class="absolute bottom-36 right-16 text-3xl md:text-5xl floating-slow opacity-70 select-none">👶</div>
+
+        <div data-aos="zoom-in" data-aos-duration="1200" class="glass-card p-8 md:p-14 rounded-[2.5rem] max-w-2xl w-full mx-auto relative z-10 border border-white/80 shadow-2xl">
+            
+            <div class="inline-flex items-center gap-2 bg-pink-100/80 px-4 py-1.5 rounded-full text-pink-600 text-xs md:text-sm font-semibold mb-6">
+                <i class="fa-solid fa-sparkles"></i> NOS COMPLACE INVITARTE A NUESTRO
+            </div>
+            
+            <h2 class="text-2xl md:text-3xl font-serif-title uppercase tracking-[0.25em] text-gray-500 mb-2 font-medium">Baby Shower</h2>
+            
+            <h1 class="text-6xl md:text-8xl font-script text-pink-500 leading-tight drop-shadow-sm my-4 font-bold">
+                Killari Cataleya
+            </h1>
+            
+            <p class="mt-4 text-base md:text-xl text-gray-600 font-light italic max-w-md mx-auto">
+                "Hay sueños que se convierten en latidos, y tú eres el nuestro..."
+            </p>
+
+            <!-- Event quick highlight badges -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mt-8 pt-8 border-t border-pink-100/80 text-gray-700">
+                <div class="flex items-center justify-center gap-2 bg-white/70 p-3 rounded-2xl border border-pink-50">
+                    <i class="fa-regular fa-calendar-check text-pink-500 text-lg"></i>
+                    <span class="text-xs md:text-sm font-semibold">26 Septiembre 2026</span>
+                </div>
+                <div class="flex items-center justify-center gap-2 bg-white/70 p-3 rounded-2xl border border-pink-50">
+                    <i class="fa-regular fa-clock text-pink-500 text-lg"></i>
+                    <span class="text-xs md:text-sm font-semibold">6:00 PM</span>
+                </div>
+                <div class="flex items-center justify-center gap-2 bg-white/70 p-3 rounded-2xl border border-pink-50">
+                    <i class="fa-solid fa-location-dot text-pink-500 text-lg"></i>
+                    <span class="text-xs md:text-sm font-semibold">Jr. Tarapacá #146</span>
+                </div>
+            </div>
+
+            <!-- Action buttons -->
+            <div class="flex flex-wrap justify-center gap-4 mt-8">
+                <a href="#detalles" class="bg-slate-900 hover:bg-slate-800 text-white px-6 py-3 rounded-full text-sm font-semibold transition-all shadow-md flex items-center gap-2">
+                    <i class="fa-solid fa-circle-info text-pink-400"></i> Detalles del Evento
+                </a>
+                <a href="#rsvp" class="bg-pink-500 hover:bg-pink-600 text-white px-6 py-3 rounded-full text-sm font-semibold transition-all shadow-md flex items-center gap-2">
+                    <i class="fa-solid fa-check text-white"></i> Confirmar Asistencia
+                </a>
+            </div>
+        </div>
+
+        <div class="mt-8 animate-bounce text-pink-400">
+            <a href="#cuenta-regresiva" aria-label="Bajar"><i class="fa-solid fa-chevron-down text-2xl"></i></a>
+        </div>
+    </section>
+
+    <!-- Cuenta Regresiva Section -->
+    <section id="cuenta-regresiva" class="py-16 md:py-24 bg-white relative overflow-hidden" data-aos="fade-up">
+        <div class="container mx-auto px-4 text-center max-w-4xl">
+            <span class="text-pink-500 font-semibold tracking-widest text-xs uppercase bg-pink-50 px-4 py-1.5 rounded-full">Faltan Solo</span>
+            <h2 class="text-4xl md:text-5xl font-script text-slate-800 my-4 font-bold">Cuenta Regresiva</h2>
+            <p class="text-gray-500 text-sm md:text-base max-w-md mx-auto mb-10">Estamos contando cada segundo para compartir esta alegría contigo.</p>
+
+            <div id="countdown-container" class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-2xl mx-auto">
+                <div class="glass-card rounded-3xl p-5 border border-pink-100 shadow-md">
+                    <span id="days" class="block text-4xl md:text-6xl font-bold text-pink-500 font-serif-title">00</span>
+                    <span class="text-xs uppercase text-gray-500 font-semibold tracking-wider mt-2 block">Días</span>
+                </div>
+                <div class="glass-card rounded-3xl p-5 border border-pink-100 shadow-md">
+                    <span id="hours" class="block text-4xl md:text-6xl font-bold text-pink-500 font-serif-title">00</span>
+                    <span class="text-xs uppercase text-gray-500 font-semibold tracking-wider mt-2 block">Horas</span>
+                </div>
+                <div class="glass-card rounded-3xl p-5 border border-pink-100 shadow-md">
+                    <span id="minutes" class="block text-4xl md:text-6xl font-bold text-pink-500 font-serif-title">00</span>
+                    <span class="text-xs uppercase text-gray-500 font-semibold tracking-wider mt-2 block">Minutos</span>
+                </div>
+                <div class="glass-card rounded-3xl p-5 border border-pink-100 shadow-md">
+                    <span id="seconds" class="block text-4xl md:text-6xl font-bold text-pink-500 font-serif-title">00</span>
+                    <span class="text-xs uppercase text-gray-500 font-semibold tracking-wider mt-2 block">Segundos</span>
+                </div>
+            </div>
+
+            <!-- Botón Agendar en Calendario -->
+            <div class="mt-10">
+                <a id="btn-calendar" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Baby+Shower+-+Killari+Cataleya&dates=20260926T230000Z/20260927T030000Z&details=¡Celebremos+juntos+el+Baby+Shower+de+Killari+Cataleya!&location=Jr.+Tarapac%C3%A1+%23146" target="_blank" class="inline-flex items-center gap-3 bg-pink-50 hover:bg-pink-100 text-pink-600 border border-pink-200 px-6 py-3 rounded-full text-sm font-semibold transition-all shadow-sm hover:scale-105">
+                    <i class="fa-regular fa-calendar-plus text-lg"></i>
+                    <span>Agendar en Google Calendar</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galería de Recuerdos "La Dulce Espera" -->
+    <section class="py-16 md:py-20 bg-gradient-to-b from-white via-pink-50/60 to-white relative overflow-hidden" data-aos="fade-up">
+        <div class="container mx-auto px-4 text-center max-w-4xl">
+            <span class="text-pink-500 font-semibold tracking-widest text-xs uppercase bg-white px-4 py-1.5 rounded-full border border-pink-200 shadow-sm inline-flex items-center gap-1.5">
+                <i class="fa-solid fa-heart text-pink-400"></i> La Dulce Espera
+            </span>
+            <h2 class="text-4xl md:text-5xl font-script text-slate-800 my-4 font-bold">Nuestra Historia y Alegría</h2>
+            <p class="text-gray-500 text-sm md:text-base max-w-lg mx-auto mb-10">
+                Con mucha ilusión y el corazón lleno de amor, compartimos las imágenes más especiales de este hermoso camino hacia la llegada de nuestra amada <strong class="text-pink-600">Killari Cataleya</strong>.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-stretch max-w-3xl mx-auto">
+                
+                <!-- Foto 1: Los Papás -->
+                <div class="glass-card glass-card-hover p-4 rounded-3xl border border-pink-100/80 shadow-lg group flex flex-col justify-between text-center relative overflow-hidden bg-white/90">
+                    <div class="overflow-hidden rounded-2xl relative shadow-inner bg-pink-50/80 h-44 md:h-48 flex items-center justify-center p-1">
+                        <img src="papas.jpg" alt="Los Papás de Killari Cataleya" class="max-h-full max-w-full object-contain rounded-xl transform group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute top-2 left-2">
+                            <span class="bg-white/90 backdrop-blur-md text-pink-600 text-[10px] md:text-xs font-bold px-2.5 py-1 rounded-full shadow-md border border-pink-100 flex items-center gap-1">
+                                <i class="fa-solid fa-user-group text-pink-400"></i> Los Papás
+                            </span>
+                        </div>
+                    </div>
+                    <div class="mt-3 px-2">
+                        <h3 class="text-base font-bold text-slate-800 font-serif-title">Esperándote con todo nuestro amor</h3>
+                        <p class="text-gray-500 text-xs mt-0.5 leading-relaxed">
+                            Contando los días y llenos de felicidad por la pronta llegada de nuestra pequeña princesa a la familia.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Foto 2: Ecografía 4D -->
+                <div class="glass-card glass-card-hover p-4 rounded-3xl border border-pink-100/80 shadow-lg group flex flex-col justify-between text-center relative overflow-hidden bg-white/90">
+                    <div class="overflow-hidden rounded-2xl relative shadow-inner bg-black h-48 md:h-52 flex items-center justify-center p-1">
+                        <img src="ecografia.jpg" alt="Ecografía 4D de Killari Cataleya" class="w-full h-full object-contain object-center transform group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute top-2 left-2">
+                            <span class="bg-white/90 backdrop-blur-md text-pink-600 text-[10px] md:text-xs font-bold px-2.5 py-1 rounded-full shadow-md border border-pink-100 flex items-center gap-1">
+                                <i class="fa-solid fa-baby text-pink-400"></i> Ecografía 4D
+                            </span>
+                        </div>
+                    </div>
+                    <div class="mt-3 px-2">
+                        <h3 class="text-base font-bold text-slate-800 font-serif-title">Conociendo a Killari Cataleya</h3>
+                        <p class="text-gray-500 text-xs mt-0.5 leading-relaxed">
+                            El primer vistazo a la carita de nuestro milagro. Cada latido nos llena de inmensa gratitud y amor.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Datos del Evento Section "¿Cuándo y Dónde?" -->
+    <section id="detalles" class="py-20 bg-baby-bg relative" data-aos="fade-up">
+        <div class="container mx-auto px-4 text-center max-w-4xl">
+            <span class="text-pink-500 font-semibold tracking-widest text-xs uppercase bg-white px-4 py-1.5 rounded-full border border-pink-100 shadow-sm">Lugar y Fecha</span>
+            <h2 class="text-4xl md:text-5xl font-script text-slate-800 my-4 font-bold">¿Cuándo y Dónde?</h2>
+            <p class="text-gray-600 text-sm md:text-base max-w-lg mx-auto mb-12">Te esperamos con los brazos abiertos para pasar una tarde inolvidable.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+                
+                <!-- Tarjeta Fecha y Hora -->
+                <div class="glass-card glass-card-hover p-8 rounded-3xl border border-white text-left flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 bg-pink-100 text-pink-500 rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-sm">
+                            <i class="fa-solid fa-calendar-day"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-slate-800 mb-2">Fecha y Hora</h3>
+                        <p class="text-pink-600 font-bold text-xl mb-1">Sábado, 26 de Septiembre del 2026</p>
+                        <p class="text-gray-600 text-lg font-medium">6:00 PM (18:00 hrs)</p>
+                        <p class="text-gray-500 text-xs mt-3 bg-pink-50 p-3 rounded-xl border border-pink-100">
+                            <i class="fa-solid fa-triangle-exclamation text-pink-500 mr-1"></i> Por favor sé puntual para no perderte las sorpresas y dinámicas iniciales.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-gray-100 flex items-center gap-2 text-xs font-semibold text-gray-500">
+                        <i class="fa-solid fa-clock text-pink-400"></i> Duración estimada: 4 horas
+                    </div>
+                </div>
+
+                <!-- Tarjeta Ubicación -->
+                <div class="glass-card glass-card-hover p-8 rounded-3xl border border-white text-left flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 bg-pink-100 text-pink-500 rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-sm">
+                            <i class="fa-solid fa-map-location-dot"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-slate-800 mb-2">Dirección</h3>
+                        <p class="text-slate-800 font-bold text-lg mb-1">Jr. Tarapacá #146</p>
+                        <p class="text-gray-600 text-sm">Dirección del evento especial</p>
+                        
+                        <!-- Map Actions -->
+                        <div class="mt-6 space-y-3">
+                            <a href="https://www.google.com/maps/search/?api=1&query=Jr.+Tarapac%C3%A1+%23146" target="_blank" class="w-full inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white px-5 py-3 rounded-2xl text-sm font-semibold transition-all shadow-md">
+                                <i class="fa-solid fa-map-pin text-rose-400"></i> Abrir en Google Maps
+                            </a>
+                            <button onclick="copyAddress('Jr. Tarapacá #146')" class="w-full inline-flex items-center justify-center gap-2 bg-white hover:bg-pink-50 text-pink-600 border border-pink-200 px-5 py-2.5 rounded-2xl text-xs font-semibold transition-all shadow-sm">
+                                <i class="fa-regular fa-copy"></i> Copiar Dirección
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Programa del Evento (Itinerario) -->
+    <section class="py-20 bg-white" data-aos="fade-up">
+        <div class="container mx-auto px-4 max-w-3xl text-center">
+            <span class="text-pink-500 font-semibold tracking-widest text-xs uppercase bg-pink-50 px-4 py-1.5 rounded-full border border-pink-100">Itinerario</span>
+            <h2 class="text-4xl md:text-5xl font-script text-slate-800 my-4 font-bold">Programa del Evento</h2>
+            <p class="text-gray-500 text-sm md:text-base max-w-md mx-auto mb-12">Conoce las actividades preparadas especialmente para celebrar este día.</p>
+
+            <div class="relative border-l-2 border-pink-200 ml-4 md:ml-32 space-y-8 text-left">
+                
+                <div class="relative pl-8 md:pl-10">
+                    <div class="absolute -left-[17px] top-1 w-8 h-8 bg-pink-500 text-white rounded-full flex items-center justify-center text-xs shadow-md">
+                        <i class="fa-solid fa-door-open"></i>
+                    </div>
+                    <span class="text-xs font-bold text-pink-500 uppercase tracking-wider bg-pink-50 px-3 py-1 rounded-full border border-pink-100">06:00 PM</span>
+                    <h3 class="text-lg font-bold text-slate-800 mt-2">Bienvenida & Recepción</h3>
+                    <p class="text-gray-600 text-sm">Llegada de invitados, toma de fotos de recuerdo y ubicación en mesas.</p>
+                </div>
+
+                <div class="relative pl-8 md:pl-10">
+                    <div class="absolute -left-[17px] top-1 w-8 h-8 bg-pink-500 text-white rounded-full flex items-center justify-center text-xs shadow-md">
+                        <i class="fa-solid fa-gamepad"></i>
+                    </div>
+                    <span class="text-xs font-bold text-pink-500 uppercase tracking-wider bg-pink-50 px-3 py-1 rounded-full border border-pink-100">06:45 PM</span>
+                    <h3 class="text-lg font-bold text-slate-800 mt-2">Juegos y Dinámicas Divertidas</h3>
+                    <p class="text-gray-600 text-sm">Juegos participativos con sorpresas e increíbles premios para los ganadores.</p>
+                </div>
+
+                <div class="relative pl-8 md:pl-10">
+                    <div class="absolute -left-[17px] top-1 w-8 h-8 bg-pink-500 text-white rounded-full flex items-center justify-center text-xs shadow-md">
+                        <i class="fa-solid fa-glass-water"></i>
+                    </div>
+                    <span class="text-xs font-bold text-pink-500 uppercase tracking-wider bg-pink-50 px-3 py-1 rounded-full border border-pink-100">07:30 PM</span>
+                    <h3 class="text-lg font-bold text-slate-800 mt-2">Brindis y Palabras de Agradecimiento</h3>
+                    <p class="text-gray-600 text-sm">Palabras especiales de los papás para dar la bienvenida oficial a Killari Cataleya.</p>
+                </div>
+
+                <div class="relative pl-8 md:pl-10">
+                    <div class="absolute -left-[17px] top-1 w-8 h-8 bg-pink-500 text-white rounded-full flex items-center justify-center text-xs shadow-md">
+                        <i class="fa-solid fa-utensils"></i>
+                    </div>
+                    <span class="text-xs font-bold text-pink-500 uppercase tracking-wider bg-pink-50 px-3 py-1 rounded-full border border-pink-100">08:15 PM</span>
+                    <h3 class="text-lg font-bold text-slate-800 mt-2">Cena & Mesa de Dulces</h3>
+                    <p class="text-gray-600 text-sm">Compartiremos un delicioso buffet, bocaditos e inauguración de la mesa temática.</p>
+                </div>
+
+                <div class="relative pl-8 md:pl-10">
+                    <div class="absolute -left-[17px] top-1 w-8 h-8 bg-pink-500 text-white rounded-full flex items-center justify-center text-xs shadow-md">
+                        <i class="fa-solid fa-camera"></i>
+                    </div>
+                    <span class="text-xs font-bold text-pink-500 uppercase tracking-wider bg-pink-50 px-3 py-1 rounded-full border border-pink-100">09:00 PM</span>
+                    <h3 class="text-lg font-bold text-slate-800 mt-2">Sesión de Fotos y Recuerdos</h3>
+                    <p class="text-gray-600 text-sm">Entrega de recuerdos del evento y fotos finales en el photobooth.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Dress Code Section -->
+    <section class="py-16 bg-baby-bg border-y border-pink-100" data-aos="fade-up">
+        <div class="container mx-auto px-4 max-w-2xl text-center">
+            <div class="w-12 h-12 bg-white text-pink-500 rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm border border-pink-100 text-xl">
+                <i class="fa-solid fa-shirt"></i>
+            </div>
+            <h2 class="text-3xl font-serif-title font-bold text-slate-800 mb-2">Código de Vestimenta</h2>
+            <p class="text-pink-600 font-semibold mb-6">Elegante Casual / Tonos Pastel</p>
+            <p class="text-gray-600 text-sm leading-relaxed mb-6">
+                Te sugerimos vestir colores suaves para armonizar con nuestras fotografías de recuerdo.
+            </p>
+            <div class="flex justify-center gap-3">
+                <span class="w-8 h-8 rounded-full bg-[#FFD1DC] border-2 border-white shadow-sm" title="Rosa pastel"></span>
+                <span class="w-8 h-8 rounded-full bg-[#FFF5F8] border-2 border-pink-200 shadow-sm" title="Blanco / Crema"></span>
+                <span class="w-8 h-8 rounded-full bg-[#F3E8FF] border-2 border-white shadow-sm" title="Lila pastel"></span>
+                <span class="w-8 h-8 rounded-full bg-[#FEF08A] border-2 border-white shadow-sm" title="Amarillo pastel"></span>
+                <span class="w-8 h-8 rounded-full bg-[#D4AF37] border-2 border-white shadow-sm" title="Dorado accent"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mesa de Regalos / Colecta -->
+    <section class="py-20 bg-white" data-aos="fade-up">
+        <div class="container mx-auto px-4 text-center max-w-xl">
+            <span class="text-pink-500 font-semibold tracking-widest text-xs uppercase bg-pink-50 px-4 py-1.5 rounded-full border border-pink-100">Obsequios</span>
+            <h2 class="text-4xl md:text-5xl font-script text-slate-800 my-4 font-bold">Mesa de Regalos</h2>
+            <p class="text-gray-600 text-sm md:text-base mb-10">
+                Tu presencia es nuestro mejor regalo. Si deseas otorgarle un detalle a Killari Cataleya, te dejamos nuestras opciones disponibles:
+            </p>
+
+            <div class="glass-card p-8 rounded-3xl shadow-lg border border-pink-100 text-left relative overflow-hidden">
+                <div class="flex items-center justify-between mb-6 pb-4 border-b border-pink-100">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-pink-100 text-pink-600 rounded-xl flex items-center justify-center font-bold text-lg">
+                            <i class="fa-solid fa-gift"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-slate-800">Lluvia de Sobres / Transferencia</h3>
+                            <p class="text-xs text-gray-500">BCP / Yape / Plin</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BCP Account (Soles) -->
+                <div class="bg-pink-50/60 p-5 rounded-2xl border border-pink-100 mb-4">
+                    <p class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">Banco BCP (Cuenta Soles)</p>
+                    <div class="flex items-center justify-between gap-2">
+                        <span id="account-bcp" class="text-base md:text-lg font-mono font-bold text-pink-600">36592125083085</span>
+                        <button onclick="copyToClipboard('36592125083085', 'Cuenta BCP Soles')" class="bg-white hover:bg-pink-100 text-pink-600 px-3 py-1.5 rounded-xl text-xs font-bold border border-pink-200 transition-all shadow-sm">
+                            <i class="fa-regular fa-copy"></i> Copiar
+                        </button>
+                    </div>
+                </div>
+
+                <!-- CCI Interbancario -->
+                <div class="bg-pink-50/60 p-5 rounded-2xl border border-pink-100 mb-6">
+                    <p class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">Cuenta Interbancaria (CCI BCP)</p>
+                    <div class="flex items-center justify-between gap-2">
+                        <span id="account-cci" class="text-xs md:text-sm font-mono font-bold text-slate-700 break-all">00236519212508308554</span>
+                        <button onclick="copyToClipboard('00236519212508308554', 'CCI Interbancario')" class="bg-white hover:bg-pink-100 text-pink-600 px-3 py-1.5 rounded-xl text-xs font-bold border border-pink-200 transition-all shadow-sm shrink-0">
+                            <i class="fa-regular fa-copy"></i> Copiar CCI
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Digital Wallet Tabs (Yape & Plin) -->
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-[#742384]/10 p-4 rounded-2xl border border-[#742384]/20 text-center">
+                        <span class="inline-block bg-[#742384] text-white text-xs font-bold px-3 py-1 rounded-full mb-2">Yape</span>
+                        <p id="yape-phone" class="font-mono text-sm font-bold text-slate-800">952 763 941</p>
+                        <button onclick="copyToClipboard('952763941', 'Número de Yape')" class="mt-3 text-xs text-[#742384] font-bold hover:underline">
+                            <i class="fa-regular fa-copy"></i> Copiar Nro
+                        </button>
+                    </div>
+                    
+                    <div class="bg-[#00D0E1]/10 p-4 rounded-2xl border border-[#00D0E1]/20 text-center">
+                        <span class="inline-block bg-[#00D0E1] text-white text-xs font-bold px-3 py-1 rounded-full mb-2">Plin</span>
+                        <p id="plin-phone" class="font-mono text-sm font-bold text-slate-800">952 763 941</p>
+                        <button onclick="copyToClipboard('952763941', 'Número de Plin')" class="mt-3 text-xs text-[#0099a8] font-bold hover:underline">
+                            <i class="fa-regular fa-copy"></i> Copiar Nro
+                        </button>
+                    </div>
+                </div>
+                
+                <p class="text-center text-xs text-gray-400 mt-6">
+                    <i class="fa-solid fa-heart text-pink-400 mr-1"></i> ¡Cualquier detalle será recibido con todo el amor!
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- RSVP Section (Formulario interactivo y confirmación por WhatsApp) -->
+    <section id="rsvp" class="py-24 bg-gradient-to-b from-pink-100/50 to-pink-200/40 relative" data-aos="zoom-in">
+        <div class="container mx-auto px-4 text-center max-w-xl">
+            <span class="text-pink-600 font-semibold tracking-widest text-xs uppercase bg-white px-4 py-1.5 rounded-full border border-pink-200 shadow-sm">RSVP</span>
+            <h2 class="text-4xl md:text-5xl font-script text-pink-600 my-4 font-bold">Confirmar Asistencia</h2>
+            <p class="text-gray-600 text-sm md:text-base mb-8">
+                Agradecemos confirmar tu asistencia para organizar la recepción con la mejor comodidad.
+            </p>
+
+            <form id="rsvp-form" class="glass-card p-8 rounded-3xl shadow-xl border border-white text-left space-y-5">
+                <div>
+                    <label for="guest-name" class="block text-xs font-bold uppercase text-gray-600 mb-2">Tu Nombre Completo *</label>
+                    <input type="text" id="guest-name" required placeholder="Ej. María García" class="w-full px-4 py-3 rounded-2xl border border-pink-200 focus:outline-none focus:ring-2 focus:ring-pink-400 bg-white/80 text-slate-800 text-sm">
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label for="attendance-status" class="block text-xs font-bold uppercase text-gray-600 mb-2">¿Asistirás? *</label>
+                        <select id="attendance-status" required class="w-full px-4 py-3 rounded-2xl border border-pink-200 focus:outline-none focus:ring-2 focus:ring-pink-400 bg-white/80 text-slate-800 text-sm">
+                            <option value="Sí, ahí estaré 🥳">¡Sí, con mucho gusto! 🎉</option>
+                            <option value="Lamentablemente no podré 💔">Lo siento, no podré asistir 😔</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="guest-count" class="block text-xs font-bold uppercase text-gray-600 mb-2">Acompañantes</label>
+                        <select id="guest-count" class="w-full px-4 py-3 rounded-2xl border border-pink-200 focus:outline-none focus:ring-2 focus:ring-pink-400 bg-white/80 text-slate-800 text-sm">
+                            <option value="Solo yo (1 persona)">Solo yo (1 persona)</option>
+                            <option value="Yo + 1 Acompañante (2 personas)">Yo + 1 Acompañante (2 personas)</option>
+                            <option value="Yo + 2 Acompañantes (3 personas)">Yo + 2 Acompañantes (3 personas)</option>
+                            <option value="Familia (4+ personas)">Familia (4+ personas)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label for="guest-message" class="block text-xs font-bold uppercase text-gray-600 mb-2">Mensaje o Deseo para la Bebé</label>
+                    <textarea id="guest-message" rows="3" placeholder="Escribe un lindo mensaje para Killari Cataleya..." class="w-full px-4 py-3 rounded-2xl border border-pink-200 focus:outline-none focus:ring-2 focus:ring-pink-400 bg-white/80 text-slate-800 text-sm"></textarea>
+                </div>
+
+                <button type="submit" class="w-full bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white font-bold py-4 px-6 rounded-2xl shadow-lg hover:shadow-emerald-200 transition-all flex items-center justify-center gap-3 text-base">
+                    <i class="fa-brands fa-whatsapp text-2xl"></i>
+                    <span>Enviar Confirmación por WhatsApp</span>
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-white py-12 text-center relative overflow-hidden">
+        <div class="container mx-auto px-4">
+            <h3 class="font-script text-4xl text-pink-400 font-bold mb-2">Killari Cataleya</h3>
+            <p class="text-gray-400 text-xs md:text-sm max-w-sm mx-auto mb-6">
+                Gracias por formar parte de este momento inolvidable en nuestras vidas.
+            </p>
+            <p class="text-xs text-gray-500">
+                26 de Septiembre de 2026 • Jr. Tarapacá #146 • 6:00 PM
+            </p>
+            <div class="w-12 h-0.5 bg-pink-500/40 mx-auto my-6"></div>
+            <p class="text-xs text-gray-600">
+                Hecho con <i class="fa-solid fa-heart text-pink-500"></i> para un día tan especial
+            </p>
+        </div>
+    </footer>
+
+    <!-- External Libraries & Scripts -->
+    <!-- SweetAlert2 (Para alertas y diálogos amigables) -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Canvas Confetti (Efecto fiesta) -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <!-- AOS Scroll Animations -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Custom Application JS -->
+    <script src="main.js"></script>
+</body>
+</html>

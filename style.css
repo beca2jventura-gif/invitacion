@@ -1,13 +1,15 @@
-/* Archivo de estilos personalizados - Invitación de Evento */
+/* Archivo de estilos personalizados - Invitación de Evento (Paleta Vino / Borgoña Elegante) */
 
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Dancing+Script:wght@500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
 
 :root {
-    --primary-pink: #ec4899;
-    --soft-pink: #fbcfe8;
+    --primary-wine: #722F37;
+    --dark-wine: #4c0519;
+    --medium-wine: #881337;
+    --soft-wine: #fecdd3;
     --gold: #d4af37;
     --gold-light: #fef08a;
-    --bg-pink: #fff5f8;
+    --bg-wine: #faf4f5;
 }
 
 html {
@@ -17,7 +19,7 @@ html {
 
 body {
     overflow-x: hidden;
-    background-color: var(--bg-pink);
+    background-color: var(--bg-wine);
     color: #334155;
 }
 
@@ -26,14 +28,14 @@ body {
     width: 8px;
 }
 ::-webkit-scrollbar-track {
-    background: #fdf2f8;
+    background: #faf4f5;
 }
 ::-webkit-scrollbar-thumb {
-    background: #f472b6;
+    background: #9f1239;
     border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-    background: #ec4899;
+    background: #722F37;
 }
 
 /* Animaciones y Efectos Visuales */
@@ -46,11 +48,11 @@ body {
 }
 
 .glass-card {
-    background: rgba(255, 255, 255, 0.75);
+    background: rgba(255, 255, 255, 0.82);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.8);
-    box-shadow: 0 10px 30px -5px rgba(236, 72, 153, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    box-shadow: 0 10px 30px -5px rgba(114, 47, 55, 0.12), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
 }
 
 .glass-card-hover {
@@ -58,8 +60,8 @@ body {
 }
 .glass-card-hover:hover {
     transform: translateY(-6px);
-    box-shadow: 0 20px 40px -10px rgba(236, 72, 153, 0.2);
-    border-color: rgba(244, 114, 182, 0.4);
+    box-shadow: 0 20px 40px -10px rgba(114, 47, 55, 0.22);
+    border-color: rgba(136, 19, 55, 0.3);
 }
 
 /* Botón pulsante */
@@ -69,13 +71,13 @@ body {
 
 @keyframes pulseGlow {
     0% {
-        box-shadow: 0 0 0 0 rgba(236, 72, 153, 0.5);
+        box-shadow: 0 0 0 0 rgba(114, 47, 55, 0.5);
     }
     70% {
-        box-shadow: 0 0 0 16px rgba(236, 72, 153, 0);
+        box-shadow: 0 0 0 16px rgba(114, 47, 55, 0);
     }
     100% {
-        box-shadow: 0 0 0 0 rgba(236, 72, 153, 0);
+        box-shadow: 0 0 0 0 rgba(114, 47, 55, 0);
     }
 }
 
@@ -104,7 +106,7 @@ body {
     display: inline-block;
     width: 3px;
     height: 14px;
-    background-color: #ec4899;
+    background-color: #881337;
     border-radius: 2px;
     animation: bounce 1.2s ease-in-out infinite alternate;
 }
@@ -148,4 +150,3 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-

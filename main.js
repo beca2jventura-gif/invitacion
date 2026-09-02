@@ -219,37 +219,37 @@ if (rsvpForm) {
     });
 }
 
-// 8. Efecto Confeti Celebratorio
+// 8. Efecto Confeti Celebratorio (Paleta Vino y Dorado)
 function triggerConfetti() {
     if (typeof confetti === 'function') {
         // Ráfaga 1: Izquierda y Derecha
         confetti({
-            particleCount: 80,
-            spread: 70,
+            particleCount: 85,
+            spread: 75,
             origin: { y: 0.6 },
-            colors: ['#f472b6', '#ec4899', '#fbcfe8', '#d4af37', '#ffffff']
+            colors: ['#722f37', '#881337', '#be123c', '#d4af37', '#ffffff']
         });
 
         setTimeout(() => {
             confetti({
-                particleCount: 50,
+                particleCount: 55,
                 angle: 60,
-                spread: 55,
+                spread: 60,
                 origin: { x: 0 },
-                colors: ['#f472b6', '#ffd1dc', '#ffffff']
+                colors: ['#881337', '#fda4af', '#ffffff']
             });
             confetti({
-                particleCount: 50,
+                particleCount: 55,
                 angle: 120,
-                spread: 55,
+                spread: 60,
                 origin: { x: 1 },
-                colors: ['#f472b6', '#d4af37', '#ffffff']
+                colors: ['#722f37', '#d4af37', '#ffffff']
             });
         }, 300);
     }
 }
 
-// 9. Partículas de Fondo Interactivas (Sparkles & Petals Canvas)
+// 9. Partículas de Fondo Interactivas (Sparkles & Petals Canvas - Paleta Vino)
 function initParticles() {
     const canvas = document.getElementById('particles-canvas');
     if (!canvas) return;
@@ -278,7 +278,7 @@ function initParticles() {
             this.speedY = Math.random() * 1.2 + 0.4;
             this.speedX = Math.random() * 0.6 - 0.3;
             this.opacity = Math.random() * 0.5 + 0.3;
-            this.color = Math.random() > 0.4 ? '#fbcfe8' : (Math.random() > 0.5 ? '#f472b6' : '#fde68a');
+            this.color = Math.random() > 0.4 ? '#fecdd3' : (Math.random() > 0.5 ? '#881337' : '#d4af37');
             this.angle = Math.random() * Math.PI * 2;
             this.spin = Math.random() * 0.02 - 0.01;
         }

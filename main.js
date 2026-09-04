@@ -23,6 +23,14 @@ const btnMusic = document.getElementById('btn-music');
 const musicText = document.getElementById('music-text');
 const equalizerBars = document.querySelectorAll('.music-bar');
 
+// ----------------------------------------------------
+// CONFIGURACIÓN DE MÚSICA (Puedes modificar estos valores)
+// ----------------------------------------------------
+const AUDIO_CONFIG = {
+    startTime: 75,  // Inicia exactamente al minuto con 15 segundos (75 segundos)
+    volume: 0.6     // Nivel de volumen entre 0.0 (silencio) y 1.0 (máximo volumen). 0.6 es el 60%
+};
+
 let isMusicPlaying = false;
 
 // 3. Apertura de la Invitación (Sobre de Bienvenida)
@@ -50,6 +58,14 @@ if (btnOpen && envelopeModal) {
 // 4. Control de Audio y Ecualizador
 function playMusic() {
     if (!bgMusic) return;
+    
+    // Aplicar volumen configurado
+    bgMusic.volume = AUDIO_CONFIG.volume;
+
+    // Si se especificó un segundo de inicio mayor a 0, iniciar desde esa posición
+    if (AUDIO_CONFIG.startTime > 0 && bgMusic.currentTime === 0) {
+        bgMusic.currentTime = AUDIO_CONFIG.startTime;
+    }
     
     bgMusic.play().then(() => {
         isMusicPlaying = true;

@@ -1,41 +1,46 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Baby Shower | Killari Cataleya - 26 de Septiembre, 2026</title>
-    
+
     <!-- Meta etiquetas de SEO y Descripción -->
-    <meta name="description" content="¡Estás invitado a celebrar la pronta llegada de nuestra amada bebé Killari Cataleya! Sábado, 26 de Septiembre, 2026 a las 6:00 PM en Jr. Tarapacá #146.">
-    
+    <meta name="description"
+        content="¡Estás invitado a celebrar la pronta llegada de nuestra amada bebé Killari Cataleya! Sábado, 26 de Septiembre, 2026 a las 6:00 PM en Jr. Tarapacá #146.">
+
     <!-- Open Graph Meta Tags (Para vista previa en WhatsApp, Facebook, Telegram) -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://beca2jventura-gif.github.io/invitacion/">
     <meta property="og:title" content="Baby Shower | Killari Cataleya 👶✨">
-    <meta property="og:description" content="¡Estás invitado a celebrar la pronta llegada de nuestra amada bebé! 📅 Sábado, 26 de Septiembre, 2026 - 6:00 PM 📍 Jr. Tarapacá #146">
-    <meta property="og:image" content="https://beca2jventura-gif.github.io/invitacion/photo2.png">
-    <meta property="og:image:secure_url" content="https://beca2jventura-gif.github.io/invitacion/photo2.png">
+    <meta property="og:description"
+        content="¡Estás invitado a celebrar la pronta llegada de nuestra amada bebé! 📅 Sábado, 26 de Septiembre, 2026 - 6:00 PM 📍 Jr. Tarapacá #146">
+    <meta property="og:image" content="photo2.png">
+    <meta property="og:image:secure_url" content="photo2.png">
     <meta property="og:image:type" content="image/png">
     <meta property="og:image:width" content="1080">
     <meta property="og:image:height" content="1080">
-    
+
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Baby Shower | Killari Cataleya 👶✨">
-    <meta name="twitter:description" content="¡Estás invitado a celebrar la pronta llegada de nuestra amada bebé! 📅 26 de Septiembre, 2026 - 6:00 PM">
-    <meta name="twitter:image" content="https://beca2jventura-gif.github.io/invitacion/photo2.png">
-    
+    <meta name="twitter:description"
+        content="¡Estás invitado a celebrar la pronta llegada de nuestra amada bebé! 📅 26 de Septiembre, 2026 - 6:00 PM">
+    <meta name="twitter:image" content="photo2.png">
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Dancing+Script:wght@500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Dancing+Script:wght@500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <!-- AOS Animation Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
+
     <!-- Tailwind CSS (CDN) -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -69,11 +74,13 @@
             }
         }
     </script>
-    
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-baby-bg text-slate-800 font-sans antialiased relative selection:bg-rose-200 selection:text-rose-950 overflow-hidden">
+
+<body
+    class="bg-baby-bg text-slate-800 font-sans antialiased relative selection:bg-rose-200 selection:text-rose-950 overflow-hidden">
 
     <!-- Canvas de Partículas / Pétalos Flotantes -->
     <canvas id="particles-canvas"></canvas>
@@ -85,38 +92,47 @@
     </audio>
 
     <!-- Pantalla de Bienvenida Interactiva (Sobre de Carta - Estilo Vino) -->
-    <div id="envelope-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/70 backdrop-blur-md transition-all duration-700 p-4">
+    <div id="envelope-modal"
+        class="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/70 backdrop-blur-md transition-all duration-700 p-4">
         <div class="envelope-wrapper w-full max-w-md">
-            <div class="envelope-card bg-white/95 rounded-3xl p-8 md:p-10 text-center shadow-2xl border-2 border-rose-200 relative overflow-hidden transform transition-all duration-500 scale-100">
-                
+            <div
+                class="envelope-card bg-white/95 rounded-3xl p-8 md:p-10 text-center shadow-2xl border-2 border-rose-200 relative overflow-hidden transform transition-all duration-500 scale-100">
+
                 <!-- Sparkles decorativos -->
                 <div class="absolute -top-6 -right-6 text-rose-300 text-6xl opacity-40 floating-slow">✨</div>
                 <div class="absolute -bottom-6 -left-6 text-rose-300 text-6xl opacity-40 floating-medium">🍷</div>
-                
-                <div class="w-20 h-20 bg-rose-100 text-[#722F37] rounded-full flex items-center justify-center mx-auto mb-6 shadow-inner text-3xl">
+
+                <div
+                    class="w-20 h-20 bg-rose-100 text-[#722F37] rounded-full flex items-center justify-center mx-auto mb-6 shadow-inner text-3xl">
                     <i class="fa-solid fa-envelope-open-text animate-bounce"></i>
                 </div>
-                
-                <span class="text-xs uppercase tracking-widest font-semibold text-[#722F37] bg-rose-50 px-4 py-1.5 rounded-full border border-rose-200">Invitación Especial</span>
-                
+
+                <span
+                    class="text-xs uppercase tracking-widest font-semibold text-[#722F37] bg-rose-50 px-4 py-1.5 rounded-full border border-rose-200">Invitación
+                    Especial</span>
+
                 <h2 class="text-4xl md:text-5xl font-script text-[#722F37] my-4 font-bold">¡Estás Invitado!</h2>
                 <p class="text-gray-600 text-sm md:text-base mb-4 leading-relaxed">
                     Acompañanos a celebrar la pronta llegada de nuestra amada bebé<br>
                     <strong class="text-[#722F37] font-serif-title text-2xl font-bold">Killari Cataleya</strong><br>
-                    <span class="text-xs text-rose-800/80 font-semibold tracking-wider uppercase mt-1 block">Con la alegría de sus papás: Naomi & Eduardo</span>
+                    <span class="text-xs text-rose-800/80 font-semibold tracking-wider uppercase mt-1 block">Con la
+                        alegría de sus papás: Naomi & Eduardo</span>
                 </p>
-                
+
                 <div class="my-3 flex justify-center">
-                    <img src="bebe.png" alt="Killari Cataleya" class="w-36 md:w-44 max-w-full drop-shadow-md floating-slow">
+                    <img src="bebe.png" alt="Killari Cataleya"
+                        class="w-36 md:w-44 max-w-full drop-shadow-md floating-slow">
                 </div>
-                
-                <button id="btn-open" class="pulse-btn w-full bg-gradient-to-r from-[#722F37] via-rose-800 to-[#4c0519] text-white py-4 px-8 rounded-full font-bold text-lg shadow-lg hover:shadow-rose-900/40 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-3">
+
+                <button id="btn-open"
+                    class="pulse-btn w-full bg-gradient-to-r from-[#722F37] via-rose-800 to-[#4c0519] text-white py-4 px-8 rounded-full font-bold text-lg shadow-lg hover:shadow-rose-900/40 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-3">
                     <span>Abrir Invitación</span>
                     <i class="fa-solid fa-heart text-amber-300"></i>
                 </button>
-                
-                <p class="text-xs text-gray-400 mt-4 flex items-center justify-center gap-1">
-                    <i class="fa-solid fa-volume-high text-[#722F37]"></i> Incluye música de fondo
+
+                <p class="text-xs text-gray-500 mt-4 flex items-center justify-center gap-1.5 font-medium">
+                    <i class="fa-solid fa-music text-[#722F37]"></i>
+                    <span>Música: <strong class="text-[#722F37]">Killari Cataleya (Reggaetón Romántico)</strong></span>
                 </p>
             </div>
         </div>
@@ -124,7 +140,8 @@
 
     <!-- Reproductor de Música Flotante -->
     <div id="btn-music-container" class="fixed bottom-6 left-6 z-40 hidden">
-        <button id="btn-music" class="glass-card px-5 py-3 rounded-full shadow-xl text-xs md:text-sm font-semibold text-[#722F37] flex items-center gap-3 hover:bg-white transition-all border border-rose-200 hover:scale-105 active:scale-95">
+        <button id="btn-music"
+            class="glass-card px-5 py-3 rounded-full shadow-xl text-xs md:text-sm font-semibold text-[#722F37] flex items-center gap-3 hover:bg-white transition-all border border-rose-200 hover:scale-105 active:scale-95">
             <div id="equalizer-bars" class="flex items-center gap-1">
                 <span class="music-bar"></span>
                 <span class="music-bar"></span>
@@ -135,60 +152,68 @@
     </div>
 
     <!-- Header / Navbar Minimalista -->
-    <header class="fixed top-0 left-0 right-0 z-30 transition-all duration-300 bg-white/60 backdrop-blur-md border-b border-rose-100/60 py-3">
+    <header
+        class="fixed top-0 left-0 right-0 z-30 transition-all duration-300 bg-white/60 backdrop-blur-md border-b border-rose-100/60 py-3">
         <div class="container mx-auto px-4 flex justify-between items-center">
             <a href="#" class="font-script text-2xl font-bold text-[#722F37] tracking-wide">Killari Cataleya</a>
-            <a href="#rsvp" class="bg-[#722F37] hover:bg-rose-900 text-white text-xs md:text-sm font-bold px-4 py-2 rounded-full transition-all shadow-md hover:shadow-rose-900/30 flex items-center gap-2">
+            <a href="#rsvp"
+                class="bg-[#722F37] hover:bg-rose-900 text-white text-xs md:text-sm font-bold px-4 py-2 rounded-full transition-all shadow-md hover:shadow-rose-900/30 flex items-center gap-2">
                 <i class="fa-solid fa-paper-plane"></i> Confirmar
             </a>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="min-h-screen flex flex-col items-center justify-center text-center px-4 pt-20 pb-12 relative overflow-hidden">
-        
+    <section
+        class="min-h-screen flex flex-col items-center justify-center text-center px-4 pt-20 pb-12 relative overflow-hidden">
+
         <!-- Elementos flotantes de decoración -->
         <div class="absolute top-24 left-8 text-4xl md:text-6xl floating-slow opacity-70 select-none">☁️</div>
         <div class="absolute top-36 right-10 text-3xl md:text-5xl floating-medium opacity-70 select-none">✨</div>
         <div class="absolute bottom-28 left-12 text-4xl md:text-6xl floating-fast opacity-70 select-none">🍷</div>
         <div class="absolute bottom-36 right-16 text-3xl md:text-5xl floating-slow opacity-70 select-none">👶</div>
 
-        <div data-aos="zoom-in" data-aos-duration="1200" class="glass-card p-8 md:p-14 rounded-[2.5rem] max-w-2xl w-full mx-auto relative z-10 border border-white/90 shadow-2xl">
-            
-            <div class="inline-flex items-center gap-2 bg-rose-100/90 px-4 py-1.5 rounded-full text-[#722F37] text-xs md:text-sm font-semibold mb-6 border border-rose-200">
+        <div data-aos="zoom-in" data-aos-duration="1200"
+            class="glass-card p-8 md:p-14 rounded-[2.5rem] max-w-2xl w-full mx-auto relative z-10 border border-white/90 shadow-2xl">
+
+            <div
+                class="inline-flex items-center gap-2 bg-rose-100/90 px-4 py-1.5 rounded-full text-[#722F37] text-xs md:text-sm font-semibold mb-6 border border-rose-200">
                 <i class="fa-solid fa-sparkles text-amber-600"></i> NOS COMPLACE INVITARTE A NUESTRO
             </div>
-            
-            <h2 class="text-2xl md:text-3xl font-serif-title uppercase tracking-[0.25em] text-gray-500 mb-2 font-medium">Baby Shower</h2>
-            
+
+            <h2
+                class="text-2xl md:text-3xl font-serif-title uppercase tracking-[0.25em] text-gray-500 mb-2 font-medium">
+                Baby Shower</h2>
+
             <h1 class="text-6xl md:text-8xl font-script text-[#722F37] leading-tight drop-shadow-sm my-4 font-bold">
                 Killari Cataleya
             </h1>
-            
-            <p class="text-sm md:text-base font-serif-title uppercase tracking-widest text-[#722F37] font-semibold mb-2">
-                Hija de <span class="font-bold text-amber-700">Naomi & Eduardo</span>
-            </p>
-            
+
+
             <!-- Imagen de la Bebé Durmiendo en la Nube (Sin fondo) -->
             <div class="my-4 flex justify-center">
-                <img src="bebe.png" alt="Killari Cataleya" class="w-56 md:w-72 max-w-full drop-shadow-2xl hover:scale-105 transition-all duration-500 floating-slow">
+                <img src="bebe.png" alt="Killari Cataleya"
+                    class="w-56 md:w-72 max-w-full drop-shadow-2xl hover:scale-105 transition-all duration-500 floating-slow">
             </div>
-            
+
             <p class="mt-4 text-base md:text-xl text-gray-600 font-light italic max-w-md mx-auto">
                 "Hay sueños que se convierten en latidos, y tú eres el nuestro..."
             </p>
 
             <!-- Event quick highlight badges -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mt-8 pt-8 border-t border-rose-100 text-gray-700">
-                <div class="flex items-center justify-center gap-2 bg-white/80 p-3 rounded-2xl border border-rose-100 shadow-sm">
+                <div
+                    class="flex items-center justify-center gap-2 bg-white/80 p-3 rounded-2xl border border-rose-100 shadow-sm">
                     <i class="fa-regular fa-calendar-check text-[#722F37] text-lg"></i>
                     <span class="text-xs md:text-sm font-semibold">26 Septiembre 2026</span>
                 </div>
-                <div class="flex items-center justify-center gap-2 bg-white/80 p-3 rounded-2xl border border-rose-100 shadow-sm">
+                <div
+                    class="flex items-center justify-center gap-2 bg-white/80 p-3 rounded-2xl border border-rose-100 shadow-sm">
                     <i class="fa-regular fa-clock text-[#722F37] text-lg"></i>
                     <span class="text-xs md:text-sm font-semibold">6:00 PM</span>
                 </div>
-                <div class="flex items-center justify-center gap-2 bg-white/80 p-3 rounded-2xl border border-rose-100 shadow-sm">
+                <div
+                    class="flex items-center justify-center gap-2 bg-white/80 p-3 rounded-2xl border border-rose-100 shadow-sm">
                     <i class="fa-solid fa-location-dot text-[#722F37] text-lg"></i>
                     <span class="text-xs md:text-sm font-semibold">Jr. Tarapacá #146</span>
                 </div>
@@ -196,10 +221,12 @@
 
             <!-- Action buttons -->
             <div class="flex flex-wrap justify-center gap-4 mt-8">
-                <a href="#detalles" class="bg-slate-900 hover:bg-slate-800 text-white px-6 py-3 rounded-full text-sm font-semibold transition-all shadow-md flex items-center gap-2">
+                <a href="#detalles"
+                    class="bg-slate-900 hover:bg-slate-800 text-white px-6 py-3 rounded-full text-sm font-semibold transition-all shadow-md flex items-center gap-2">
                     <i class="fa-solid fa-circle-info text-amber-400"></i> Detalles del Evento
                 </a>
-                <a href="#rsvp" class="bg-[#722F37] hover:bg-rose-900 text-white px-6 py-3 rounded-full text-sm font-semibold transition-all shadow-md flex items-center gap-2">
+                <a href="#rsvp"
+                    class="bg-[#722F37] hover:bg-rose-900 text-white px-6 py-3 rounded-full text-sm font-semibold transition-all shadow-md flex items-center gap-2">
                     <i class="fa-solid fa-check text-white"></i> Confirmar Asistencia
                 </a>
             </div>
@@ -211,31 +238,40 @@
     </section>
 
     <!-- Sección Los Papás (Naomi & Eduardo) -->
-    <section id="papas" class="py-16 md:py-20 bg-gradient-to-b from-[#FAF4F5] via-white to-[#FAF4F5] relative overflow-hidden" data-aos="fade-up">
+    <section id="papas"
+        class="py-16 md:py-20 bg-gradient-to-b from-[#FAF4F5] via-white to-[#FAF4F5] relative overflow-hidden"
+        data-aos="fade-up">
         <div class="container mx-auto px-4 max-w-3xl text-center relative z-10">
-            <span class="text-[#722F37] font-semibold tracking-widest text-xs uppercase bg-white px-4 py-1.5 rounded-full border border-rose-200 shadow-sm inline-flex items-center gap-2">
+            <span
+                class="text-[#722F37] font-semibold tracking-widest text-xs uppercase bg-white px-4 py-1.5 rounded-full border border-rose-200 shadow-sm inline-flex items-center gap-2">
                 <i class="fa-solid fa-heart text-rose-500"></i> Los Papás
             </span>
-            
+
             <h2 class="text-4xl md:text-5xl font-script text-[#722F37] my-4 font-bold">Naomi & Eduardo</h2>
-            
+
             <p class="text-gray-600 text-sm md:text-base max-w-lg mx-auto mb-10 font-light italic">
-                "Con el corazón lleno de amor y gratitud, esperamos con ilusión la pronta llegada de nuestra amada hija."
+                "Con el corazón lleno de amor y gratitud, esperamos con ilusión la pronta llegada de nuestra amada
+                hija."
             </p>
 
             <!-- Tarjeta con los nombres de los Papás (sin foto) -->
-            <div class="glass-card glass-card-hover p-8 md:p-10 rounded-[2.5rem] border border-rose-200/80 shadow-xl max-w-lg mx-auto relative overflow-hidden">
-                <div class="w-16 h-16 bg-rose-100/80 text-[#722F37] rounded-full flex items-center justify-center mx-auto mb-6 shadow-inner text-2xl border border-rose-200">
+            <div
+                class="glass-card glass-card-hover p-8 md:p-10 rounded-[2.5rem] border border-rose-200/80 shadow-xl max-w-lg mx-auto relative overflow-hidden">
+                <div
+                    class="w-16 h-16 bg-rose-100/80 text-[#722F37] rounded-full flex items-center justify-center mx-auto mb-6 shadow-inner text-2xl border border-rose-200">
                     <i class="fa-solid fa-hands-holding-child"></i>
                 </div>
-                
-                <div class="flex items-center justify-center gap-3 text-[#722F37] font-serif-title font-semibold text-xl md:text-2xl">
-                    <div class="bg-rose-50 px-6 py-2.5 rounded-full border border-rose-200 flex items-center gap-2 shadow-sm">
+
+                <div
+                    class="flex items-center justify-center gap-3 text-[#722F37] font-serif-title font-semibold text-xl md:text-2xl">
+                    <div
+                        class="bg-rose-50 px-6 py-2.5 rounded-full border border-rose-200 flex items-center gap-2 shadow-sm">
                         <i class="fa-solid fa-crown text-amber-500 text-sm"></i>
                         <span>Naomi</span>
                     </div>
                     <span class="text-amber-600 text-3xl font-script">&</span>
-                    <div class="bg-rose-50 px-6 py-2.5 rounded-full border border-rose-200 flex items-center gap-2 shadow-sm">
+                    <div
+                        class="bg-rose-50 px-6 py-2.5 rounded-full border border-rose-200 flex items-center gap-2 shadow-sm">
                         <i class="fa-solid fa-crown text-amber-500 text-sm"></i>
                         <span>Eduardo</span>
                     </div>
@@ -247,32 +283,43 @@
     <!-- Cuenta Regresiva Section -->
     <section id="cuenta-regresiva" class="py-16 md:py-24 bg-white relative overflow-hidden" data-aos="fade-up">
         <div class="container mx-auto px-4 text-center max-w-4xl">
-            <span class="text-[#722F37] font-semibold tracking-widest text-xs uppercase bg-rose-50 px-4 py-1.5 rounded-full border border-rose-100">Faltan Solo</span>
+            <span
+                class="text-[#722F37] font-semibold tracking-widest text-xs uppercase bg-rose-50 px-4 py-1.5 rounded-full border border-rose-100">Faltan
+                Solo</span>
             <h2 class="text-4xl md:text-5xl font-script text-slate-800 my-4 font-bold">Cuenta Regresiva</h2>
-            <p class="text-gray-500 text-sm md:text-base max-w-md mx-auto mb-10">Estamos contando cada segundo para compartir esta alegría contigo.</p>
+            <p class="text-gray-500 text-sm md:text-base max-w-md mx-auto mb-10">Estamos contando cada segundo para
+                compartir esta alegría contigo.</p>
 
             <div id="countdown-container" class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-2xl mx-auto">
                 <div class="glass-card rounded-3xl p-5 border border-rose-100 shadow-md">
-                    <span id="days" class="block text-4xl md:text-6xl font-bold text-[#722F37] font-serif-title">00</span>
+                    <span id="days"
+                        class="block text-4xl md:text-6xl font-bold text-[#722F37] font-serif-title">00</span>
                     <span class="text-xs uppercase text-gray-500 font-semibold tracking-wider mt-2 block">Días</span>
                 </div>
                 <div class="glass-card rounded-3xl p-5 border border-rose-100 shadow-md">
-                    <span id="hours" class="block text-4xl md:text-6xl font-bold text-[#722F37] font-serif-title">00</span>
+                    <span id="hours"
+                        class="block text-4xl md:text-6xl font-bold text-[#722F37] font-serif-title">00</span>
                     <span class="text-xs uppercase text-gray-500 font-semibold tracking-wider mt-2 block">Horas</span>
                 </div>
                 <div class="glass-card rounded-3xl p-5 border border-rose-100 shadow-md">
-                    <span id="minutes" class="block text-4xl md:text-6xl font-bold text-[#722F37] font-serif-title">00</span>
+                    <span id="minutes"
+                        class="block text-4xl md:text-6xl font-bold text-[#722F37] font-serif-title">00</span>
                     <span class="text-xs uppercase text-gray-500 font-semibold tracking-wider mt-2 block">Minutos</span>
                 </div>
                 <div class="glass-card rounded-3xl p-5 border border-rose-100 shadow-md">
-                    <span id="seconds" class="block text-4xl md:text-6xl font-bold text-[#722F37] font-serif-title">00</span>
-                    <span class="text-xs uppercase text-gray-500 font-semibold tracking-wider mt-2 block">Segundos</span>
+                    <span id="seconds"
+                        class="block text-4xl md:text-6xl font-bold text-[#722F37] font-serif-title">00</span>
+                    <span
+                        class="text-xs uppercase text-gray-500 font-semibold tracking-wider mt-2 block">Segundos</span>
                 </div>
             </div>
 
             <!-- Botón Agendar en Calendario -->
             <div class="mt-10">
-                <a id="btn-calendar" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Baby+Shower+-+Killari+Cataleya&dates=20260926T230000Z/20260927T030000Z&details=¡Celebremos+juntos+el+Baby+Shower+de+Killari+Cataleya!&location=Jr.+Tarapac%C3%A1+%23146" target="_blank" class="inline-flex items-center gap-3 bg-rose-50 hover:bg-rose-100 text-[#722F37] border border-rose-200 px-6 py-3 rounded-full text-sm font-semibold transition-all shadow-sm hover:scale-105">
+                <a id="btn-calendar"
+                    href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Baby+Shower+-+Killari+Cataleya&dates=20260926T230000Z/20260927T030000Z&details=¡Celebremos+juntos+el+Baby+Shower+de+Killari+Cataleya!&location=Jr.+Tarapac%C3%A1+%23146"
+                    target="_blank"
+                    class="inline-flex items-center gap-3 bg-rose-50 hover:bg-rose-100 text-[#722F37] border border-rose-200 px-6 py-3 rounded-full text-sm font-semibold transition-all shadow-sm hover:scale-105">
                     <i class="fa-regular fa-calendar-plus text-lg text-amber-600"></i>
                     <span>Agendar en Google Calendar</span>
                 </a>
@@ -283,46 +330,57 @@
     <!-- Datos del Evento Section "¿Cuándo y Dónde?" -->
     <section id="detalles" class="py-20 bg-[#FAF4F5] relative" data-aos="fade-up">
         <div class="container mx-auto px-4 text-center max-w-4xl">
-            <span class="text-[#722F37] font-semibold tracking-widest text-xs uppercase bg-white px-4 py-1.5 rounded-full border border-rose-200 shadow-sm">Lugar y Fecha</span>
+            <span
+                class="text-[#722F37] font-semibold tracking-widest text-xs uppercase bg-white px-4 py-1.5 rounded-full border border-rose-200 shadow-sm">Lugar
+                y Fecha</span>
             <h2 class="text-4xl md:text-5xl font-script text-slate-800 my-4 font-bold">¿Cuándo y Dónde?</h2>
-            <p class="text-gray-600 text-sm md:text-base max-w-lg mx-auto mb-12">Te esperamos con los brazos abiertos para pasar una tarde inolvidable.</p>
+            <p class="text-gray-600 text-sm md:text-base max-w-lg mx-auto mb-12">Te esperamos con los brazos abiertos
+                para pasar una tarde inolvidable.</p>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
-                
+
                 <!-- Tarjeta Fecha y Hora -->
-                <div class="glass-card glass-card-hover p-8 rounded-3xl border border-white text-left flex flex-col justify-between shadow-xl">
+                <div
+                    class="glass-card glass-card-hover p-8 rounded-3xl border border-white text-left flex flex-col justify-between shadow-xl">
                     <div>
-                        <div class="w-14 h-14 bg-rose-100 text-[#722F37] rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-sm">
+                        <div
+                            class="w-14 h-14 bg-rose-100 text-[#722F37] rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-sm">
                             <i class="fa-solid fa-calendar-day"></i>
                         </div>
                         <h3 class="text-2xl font-bold text-slate-800 mb-2">Fecha y Hora</h3>
                         <p class="text-[#722F37] font-bold text-xl mb-1">Sábado, 26 de Septiembre del 2026</p>
                         <p class="text-gray-600 text-lg font-medium">6:00 PM (18:00 hrs)</p>
                         <p class="text-gray-500 text-xs mt-3 bg-rose-50/80 p-3 rounded-xl border border-rose-100">
-                            <i class="fa-solid fa-triangle-exclamation text-[#722F37] mr-1"></i> Por favor sé puntual para no perderte las sorpresas y dinámicas iniciales.
+                            <i class="fa-solid fa-triangle-exclamation text-[#722F37] mr-1"></i> Por favor sé puntual
+                            para no perderte las sorpresas y dinámicas iniciales.
                         </p>
                     </div>
-                    <div class="mt-6 pt-4 border-t border-gray-100 flex items-center gap-2 text-xs font-semibold text-gray-500">
+                    <div
+                        class="mt-6 pt-4 border-t border-gray-100 flex items-center gap-2 text-xs font-semibold text-gray-500">
                         <i class="fa-solid fa-clock text-[#722F37]"></i> Duración estimada: 4 horas
                     </div>
                 </div>
 
                 <!-- Tarjeta Ubicación -->
-                <div class="glass-card glass-card-hover p-8 rounded-3xl border border-white text-left flex flex-col justify-between shadow-xl">
+                <div
+                    class="glass-card glass-card-hover p-8 rounded-3xl border border-white text-left flex flex-col justify-between shadow-xl">
                     <div>
-                        <div class="w-14 h-14 bg-rose-100 text-[#722F37] rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-sm">
+                        <div
+                            class="w-14 h-14 bg-rose-100 text-[#722F37] rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-sm">
                             <i class="fa-solid fa-map-location-dot"></i>
                         </div>
                         <h3 class="text-2xl font-bold text-slate-800 mb-2">Dirección</h3>
                         <p class="text-slate-800 font-bold text-lg mb-1">Jr. Tarapacá #146</p>
                         <p class="text-gray-600 text-sm">Dirección del evento especial</p>
-                        
+
                         <!-- Map Actions -->
                         <div class="mt-6 space-y-3">
-                            <a href="https://maps.app.goo.gl/2QJg5SKvEuKdZtc47" target="_blank" class="w-full inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white px-5 py-3 rounded-2xl text-sm font-semibold transition-all shadow-md">
+                            <a href="https://maps.app.goo.gl/2QJg5SKvEuKdZtc47" target="_blank"
+                                class="w-full inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white px-5 py-3 rounded-2xl text-sm font-semibold transition-all shadow-md">
                                 <i class="fa-solid fa-map-pin text-rose-400"></i> Abrir en Google Maps
                             </a>
-                            <button onclick="copyAddress('Jr. Tarapacá #146')" class="w-full inline-flex items-center justify-center gap-2 bg-white hover:bg-rose-50 text-[#722F37] border border-rose-200 px-5 py-2.5 rounded-2xl text-xs font-semibold transition-all shadow-sm">
+                            <button onclick="copyAddress('Jr. Tarapacá #146')"
+                                class="w-full inline-flex items-center justify-center gap-2 bg-white hover:bg-rose-50 text-[#722F37] border border-rose-200 px-5 py-2.5 rounded-2xl text-xs font-semibold transition-all shadow-sm">
                                 <i class="fa-regular fa-copy"></i> Copiar Dirección
                             </button>
                         </div>
@@ -336,47 +394,58 @@
     <!-- Notas Especiales para los Invitados (Reemplazo del Itinerario) -->
     <section class="py-20 bg-white" data-aos="fade-up">
         <div class="container mx-auto px-4 max-w-4xl text-center">
-            <span class="text-[#722F37] font-semibold tracking-widest text-xs uppercase bg-rose-50 px-4 py-1.5 rounded-full border border-rose-100">Indicaciones</span>
+            <span
+                class="text-[#722F37] font-semibold tracking-widest text-xs uppercase bg-rose-50 px-4 py-1.5 rounded-full border border-rose-100">Indicaciones</span>
             <h2 class="text-4xl md:text-5xl font-script text-slate-800 my-4 font-bold">Notas Especiales</h2>
-            <p class="text-gray-500 text-sm md:text-base max-w-md mx-auto mb-12">Detalles importantes para que disfrutes al máximo nuestra celebración.</p>
+            <p class="text-gray-500 text-sm md:text-base max-w-md mx-auto mb-12">Detalles importantes para que disfrutes
+                al máximo nuestra celebración.</p>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
-                
+
                 <!-- Tarjeta 1: Puntualidad -->
-                <div class="glass-card glass-card-hover p-6 rounded-3xl border border-rose-100 shadow-md flex flex-col justify-between">
+                <div
+                    class="glass-card glass-card-hover p-6 rounded-3xl border border-rose-100 shadow-md flex flex-col justify-between">
                     <div>
-                        <div class="w-12 h-12 bg-rose-100 text-[#722F37] rounded-2xl flex items-center justify-center text-xl mb-4 shadow-sm">
+                        <div
+                            class="w-12 h-12 bg-rose-100 text-[#722F37] rounded-2xl flex items-center justify-center text-xl mb-4 shadow-sm">
                             <i class="fa-solid fa-clock font-bold"></i>
                         </div>
                         <h3 class="text-lg font-bold text-slate-800 mb-2">Puntualidad</h3>
                         <p class="text-gray-600 text-xs leading-relaxed">
-                            La recepción iniciará a las 6:00 PM. Agradecemos tu puntualidad para disfrutar de todas las sorpresas iniciales.
+                            La recepción iniciará a las 6:00 PM. Agradecemos tu puntualidad para disfrutar de todas las
+                            sorpresas iniciales.
                         </p>
                     </div>
                 </div>
 
                 <!-- Tarjeta 2: Evento Familiar -->
-                <div class="glass-card glass-card-hover p-6 rounded-3xl border border-rose-100 shadow-md flex flex-col justify-between">
+                <div
+                    class="glass-card glass-card-hover p-6 rounded-3xl border border-rose-100 shadow-md flex flex-col justify-between">
                     <div>
-                        <div class="w-12 h-12 bg-rose-100 text-[#722F37] rounded-2xl flex items-center justify-center text-xl mb-4 shadow-sm">
+                        <div
+                            class="w-12 h-12 bg-rose-100 text-[#722F37] rounded-2xl flex items-center justify-center text-xl mb-4 shadow-sm">
                             <i class="fa-solid fa-heart"></i>
                         </div>
                         <h3 class="text-lg font-bold text-slate-800 mb-2">Momento Especial</h3>
                         <p class="text-gray-600 text-xs leading-relaxed">
-                            Un espacio pensado con todo el amor para compartir sonrisas, abrazos y buenos deseos para la llegada de Killari Cataleya.
+                            Un espacio pensado con todo el amor para compartir sonrisas, abrazos y buenos deseos para la
+                            llegada de Killari Cataleya.
                         </p>
                     </div>
                 </div>
 
                 <!-- Tarjeta 3: Fotos & Recuerdos -->
-                <div class="glass-card glass-card-hover p-6 rounded-3xl border border-rose-100 shadow-md flex flex-col justify-between">
+                <div
+                    class="glass-card glass-card-hover p-6 rounded-3xl border border-rose-100 shadow-md flex flex-col justify-between">
                     <div>
-                        <div class="w-12 h-12 bg-rose-100 text-[#722F37] rounded-2xl flex items-center justify-center text-xl mb-4 shadow-sm">
+                        <div
+                            class="w-12 h-12 bg-rose-100 text-[#722F37] rounded-2xl flex items-center justify-center text-xl mb-4 shadow-sm">
                             <i class="fa-solid fa-camera"></i>
                         </div>
                         <h3 class="text-lg font-bold text-slate-800 mb-2">Fotografías</h3>
                         <p class="text-gray-600 text-xs leading-relaxed">
-                            Ven preparado para capturar los mejores momentos y llevarte un hermoso recuerdo inolvidable de esta gran fecha.
+                            Ven preparado para capturar los mejores momentos y llevarte un hermoso recuerdo inolvidable
+                            de esta gran fecha.
                         </p>
                     </div>
                 </div>
@@ -388,13 +457,15 @@
     <!-- Dress Code Section (Vestimenta Libre) -->
     <section class="py-16 bg-[#FAF4F5] border-y border-rose-100" data-aos="fade-up">
         <div class="container mx-auto px-4 max-w-2xl text-center">
-            <div class="w-12 h-12 bg-white text-[#722F37] rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm border border-rose-200 text-xl">
+            <div
+                class="w-12 h-12 bg-white text-[#722F37] rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm border border-rose-200 text-xl">
                 <i class="fa-solid fa-shirt"></i>
             </div>
             <h2 class="text-3xl font-serif-title font-bold text-slate-800 mb-2">Código de Vestimenta</h2>
             <p class="text-[#722F37] font-semibold text-lg mb-3">¡Vestimenta Libre!</p>
             <p class="text-gray-600 text-sm leading-relaxed max-w-md mx-auto">
-                Queremos que disfrutes al máximo con nosotros. Puedes asistir con la ropa y los colores de tu preferencia con los que te sientas más cómodo.
+                Queremos que disfrutes al máximo con nosotros. Puedes asistir con la ropa y los colores de tu
+                preferencia con los que te sientas más cómodo.
             </p>
         </div>
     </section>
@@ -402,7 +473,8 @@
     <!-- RSVP Section (Formulario interactivo y confirmación por WhatsApp) -->
     <section id="rsvp" class="py-24 bg-gradient-to-b from-rose-100/60 to-rose-200/50 relative" data-aos="zoom-in">
         <div class="container mx-auto px-4 text-center max-w-xl">
-            <span class="text-[#722F37] font-semibold tracking-widest text-xs uppercase bg-white px-4 py-1.5 rounded-full border border-rose-200 shadow-sm">RSVP</span>
+            <span
+                class="text-[#722F37] font-semibold tracking-widest text-xs uppercase bg-white px-4 py-1.5 rounded-full border border-rose-200 shadow-sm">RSVP</span>
             <h2 class="text-4xl md:text-5xl font-script text-[#722F37] my-4 font-bold">Confirmar Asistencia</h2>
             <p class="text-gray-600 text-sm md:text-base mb-8">
                 Agradecemos confirmar tu asistencia para organizar la recepción con la mejor comodidad.
@@ -410,21 +482,27 @@
 
             <form id="rsvp-form" class="glass-card p-8 rounded-3xl shadow-xl border border-white text-left space-y-5">
                 <div>
-                    <label for="guest-name" class="block text-xs font-bold uppercase text-gray-600 mb-2">Tu Nombre Completo *</label>
-                    <input type="text" id="guest-name" required placeholder="Ej. María García" class="w-full px-4 py-3 rounded-2xl border border-rose-200 focus:outline-none focus:ring-2 focus:ring-[#722F37] bg-white/90 text-slate-800 text-sm">
+                    <label for="guest-name" class="block text-xs font-bold uppercase text-gray-600 mb-2">Tu Nombre
+                        Completo *</label>
+                    <input type="text" id="guest-name" required placeholder="Ej. María García"
+                        class="w-full px-4 py-3 rounded-2xl border border-rose-200 focus:outline-none focus:ring-2 focus:ring-[#722F37] bg-white/90 text-slate-800 text-sm">
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                        <label for="attendance-status" class="block text-xs font-bold uppercase text-gray-600 mb-2">¿Asistirás? *</label>
-                        <select id="attendance-status" required class="w-full px-4 py-3 rounded-2xl border border-rose-200 focus:outline-none focus:ring-2 focus:ring-[#722F37] bg-white/90 text-slate-800 text-sm">
+                        <label for="attendance-status"
+                            class="block text-xs font-bold uppercase text-gray-600 mb-2">¿Asistirás? *</label>
+                        <select id="attendance-status" required
+                            class="w-full px-4 py-3 rounded-2xl border border-rose-200 focus:outline-none focus:ring-2 focus:ring-[#722F37] bg-white/90 text-slate-800 text-sm">
                             <option value="Sí, ahí estaré 🥳">¡Sí, con mucho gusto! 🎉</option>
                             <option value="Lamentablemente no podré 💔">Lo siento, no podré asistir 😔</option>
                         </select>
                     </div>
                     <div>
-                        <label for="guest-count" class="block text-xs font-bold uppercase text-gray-600 mb-2">Acompañantes</label>
-                        <select id="guest-count" class="w-full px-4 py-3 rounded-2xl border border-rose-200 focus:outline-none focus:ring-2 focus:ring-[#722F37] bg-white/90 text-slate-800 text-sm">
+                        <label for="guest-count"
+                            class="block text-xs font-bold uppercase text-gray-600 mb-2">Acompañantes</label>
+                        <select id="guest-count"
+                            class="w-full px-4 py-3 rounded-2xl border border-rose-200 focus:outline-none focus:ring-2 focus:ring-[#722F37] bg-white/90 text-slate-800 text-sm">
                             <option value="Solo yo (1 persona)">Solo yo (1 persona)</option>
                             <option value="Yo + 1 Acompañante (2 personas)">Yo + 1 Acompañante (2 personas)</option>
                             <option value="Yo + 2 Acompañantes (3 personas)">Yo + 2 Acompañantes (3 personas)</option>
@@ -434,11 +512,15 @@
                 </div>
 
                 <div>
-                    <label for="guest-message" class="block text-xs font-bold uppercase text-gray-600 mb-2">Mensaje o Deseo para la Bebé</label>
-                    <textarea id="guest-message" rows="3" placeholder="Escribe un lindo mensaje para Killari Cataleya..." class="w-full px-4 py-3 rounded-2xl border border-rose-200 focus:outline-none focus:ring-2 focus:ring-[#722F37] bg-white/90 text-slate-800 text-sm"></textarea>
+                    <label for="guest-message" class="block text-xs font-bold uppercase text-gray-600 mb-2">Mensaje o
+                        Deseo para la Bebé</label>
+                    <textarea id="guest-message" rows="3"
+                        placeholder="Escribe un lindo mensaje para Killari Cataleya..."
+                        class="w-full px-4 py-3 rounded-2xl border border-rose-200 focus:outline-none focus:ring-2 focus:ring-[#722F37] bg-white/90 text-slate-800 text-sm"></textarea>
                 </div>
 
-                <button type="submit" class="w-full bg-gradient-to-r from-[#722F37] via-rose-900 to-[#4c0519] hover:from-[#581825] hover:to-rose-950 text-white font-bold py-4 px-6 rounded-2xl shadow-lg hover:shadow-rose-900/40 transition-all flex items-center justify-center gap-3 text-base">
+                <button type="submit"
+                    class="w-full bg-gradient-to-r from-[#722F37] via-rose-900 to-[#4c0519] hover:from-[#581825] hover:to-rose-950 text-white font-bold py-4 px-6 rounded-2xl shadow-lg hover:shadow-rose-900/40 transition-all flex items-center justify-center gap-3 text-base">
                     <i class="fa-brands fa-whatsapp text-2xl text-emerald-400"></i>
                     <span>Enviar Confirmación por WhatsApp</span>
                 </button>
@@ -473,4 +555,5 @@
     <!-- Custom Application JS -->
     <script src="main.js"></script>
 </body>
+
 </html>

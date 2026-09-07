@@ -62,10 +62,16 @@ function playMusic() {
     // Aplicar volumen configurado
     bgMusic.volume = AUDIO_CONFIG.volume;
 
-    // Forzar inicio desde el segundo 0
-    bgMusic.currentTime = AUDIO_CONFIG.startTime || 0;
-    
+    // Forzar tiempo a 0 antes de reproducir
+    try {
+        bgMusic.currentTime = 0;
+    } catch (e) {}
+
     bgMusic.play().then(() => {
+        // Re-confirmar el inicio en 0 una vez que el audio empiece a sonar
+        try {
+            bgMusic.currentTime = 0;
+        } catch (e) {}
         isMusicPlaying = true;
         updateMusicUI(true);
         if (btnMusicContainer) btnMusicContainer.classList.remove('hidden');

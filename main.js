@@ -27,8 +27,8 @@ const equalizerBars = document.querySelectorAll('.music-bar');
 // CONFIGURACIÓN DE MÚSICA (Puedes modificar estos valores)
 // ----------------------------------------------------
 const AUDIO_CONFIG = {
-    startTime: 75,  // Inicia exactamente al minuto con 15 segundos (75 segundos)
-    volume: 0.6     // Nivel de volumen entre 0.0 (silencio) y 1.0 (máximo volumen). 0.6 es el 60%
+    startTime: 0,   // Inicia desde el segundo 0 (principio de la canción)
+    volume: 0.6     // Nivel de volumen entre 0.0 y 1.0 (60%)
 };
 
 let isMusicPlaying = false;
@@ -62,10 +62,8 @@ function playMusic() {
     // Aplicar volumen configurado
     bgMusic.volume = AUDIO_CONFIG.volume;
 
-    // Si se especificó un segundo de inicio mayor a 0, iniciar desde esa posición
-    if (AUDIO_CONFIG.startTime > 0 && bgMusic.currentTime === 0) {
-        bgMusic.currentTime = AUDIO_CONFIG.startTime;
-    }
+    // Forzar inicio desde el segundo 0
+    bgMusic.currentTime = AUDIO_CONFIG.startTime || 0;
     
     bgMusic.play().then(() => {
         isMusicPlaying = true;

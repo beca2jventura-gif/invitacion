@@ -150,3 +150,64 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+
+/* Banner de Recordatorio Superior Sticky */
+.top-reminder-banner {
+    background: linear-gradient(90deg, #722F37 0%, #9f1239 50%, #4c0519 100%);
+    color: #ffffff;
+    box-shadow: 0 4px 15px rgba(114, 47, 55, 0.3);
+}
+
+/* Insignias de Yape y Plin */
+.badge-yape {
+    background: linear-gradient(135deg, #742284 0%, #a21caf 100%);
+    color: #ffffff;
+}
+
+.badge-plin {
+    background: linear-gradient(135deg, #0284c7 0%, #06b6d4 100%);
+    color: #ffffff;
+}
+
+/* Miniatura del Código QR interactiva */
+.qr-container {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 1.25rem;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+}
+
+.qr-container:hover {
+    transform: scale(1.04);
+    box-shadow: 0 12px 25px -5px rgba(116, 34, 132, 0.35);
+}
+
+.qr-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(116, 34, 132, 0.65);
+    backdrop-filter: blur(3px);
+    display: flex;
+    flex-direction: column;
+    items-center: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    color: white;
+}
+
+.qr-container:hover .qr-overlay {
+    opacity: 1;
+}
+
+/* Lightbox Modal para QR */
+.qr-modal-backdrop {
+    animation: fadeIn 0.3s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+

@@ -210,7 +210,7 @@ if (rsvpForm) {
         if (message) {
             waMessage += `💬 *Mensaje:* "${message}"\n`;
         }
-        waMessage += `\n✨ Confirmado para el Baby Shower de Killari Cataleya (26 Sept 2026 - Jr. Tarapacá #146).`;
+        waMessage += `\n✨ Confirmado para el Baby Shower de Killari Cataleya (26 Sept 2026 - Augusto Figueroa 247).`;
 
         const phoneNumber = '51952763941'; // Número de confirmación WhatsApp
         const waUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(waMessage)}`;
@@ -341,3 +341,44 @@ function initParticles() {
     animate();
 }
 
+// 10. Control del Lightbox para el Código QR de Yape
+const btnOpenQr = document.getElementById('btn-open-qr');
+const btnCloseQr = document.getElementById('btn-close-qr');
+const qrLightboxModal = document.getElementById('qr-lightbox-modal');
+
+function openQrModal() {
+    if (qrLightboxModal) {
+        qrLightboxModal.classList.remove('hidden');
+    }
+}
+
+function closeQrModal() {
+    if (qrLightboxModal) {
+        qrLightboxModal.classList.add('hidden');
+    }
+}
+
+if (btnOpenQr) {
+    btnOpenQr.addEventListener('click', openQrModal);
+}
+
+if (btnCloseQr) {
+    btnCloseQr.addEventListener('click', closeQrModal);
+}
+
+if (qrLightboxModal) {
+    qrLightboxModal.addEventListener('click', (e) => {
+        if (e.target === qrLightboxModal) {
+            closeQrModal();
+        }
+    });
+}
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && qrLightboxModal && !qrLightboxModal.classList.contains('hidden')) {
+        closeQrModal();
+    }
+});
+
+window.openQrModal = openQrModal;
+window.closeQrModal = closeQrModal;
